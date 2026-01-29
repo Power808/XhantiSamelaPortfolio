@@ -1,0 +1,49 @@
+.heroContainer {
+    position: relative;
+    width: 100%;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 500px;
+}
+
+.nameWrapper {
+    width: 100%;
+    margin-bottom: 4rem;
+    z-index: 2;
+}
+
+.line {
+    display: flex;
+    gap: 0.1em;
+    height: clamp(3rem, 12vw, 10rem);
+    perspective: 1000px;
+}
+
+.letter {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 12vw, 10rem);
+    line-height: 0.85;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    color: var(--foreground);
+    opacity: 0;
+    transform: translateY(var(--start-y, 300px)) rotateX(90deg) scale(0.3);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: blur(10px);
+}
+
+.letter.animate {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+    filter: blur(0);
+}
+
+@media (max-width: 768px) {
+    .heroContainer {
+        min-height: 400px;
+        padding: 2rem 0;
+    }
+}
